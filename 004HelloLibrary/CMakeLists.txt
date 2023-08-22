@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.22)
 
 project(HelloLibrary)
+
+#windows下需要在dll函数中加 __declspec(dllexport)才能也生成lib给调用者使用，动态库也需要lib去链接
 
 #创建动态库
 add_library(hello_library SHARED HelloLibrary.cpp)
@@ -12,6 +14,6 @@ include_directories(${PROJECT_SOURCE_DIR})
 add_executable(hello_main Main.cpp)
 
 #指定某个目标生成所依赖的库
-target_link_libraries(hello_main PUBLIC hello_library) 
+target_link_libraries(hello_main hello_library) 
 
 
