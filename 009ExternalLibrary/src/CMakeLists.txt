@@ -1,0 +1,6 @@
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+#link_libraries(/workspace/CMakeLearn/008LibraryProperty/build/lib/Release/linear.lib)
+link_directories(/workspace/CMakeLearn/008LibraryProperty/build/lib/Release)
+add_executable(ExternalLibrary Main.cpp)
+include_directories(/workspace/CMakeLearn/008LibraryProperty/build/tmp/include/LibraryProperty)
+target_link_libraries(ExternalLibrary linear.dll)
